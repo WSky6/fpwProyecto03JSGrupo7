@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><strong>Ejercicio 04 - Filtrado de Películas</strong></h1>
+    <div></div>
+        <select id="filtroGenero">
+            <option value="elección">-- Seleccione un género --</option>   
+            <option value="todos">Todos</option>
+            <option value="Acción">Acción</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Drama">Drama</option>
+        </select>
+        <button id="btnFiltrar">Filtrar</button>
+    </div>
+    <div>
+        <select id="filtroPuntaje">
+            <option value="elección02">-- Seleccione un puntaje --</option>   
+            <option value="todos">Todos</option>
+            <option value="8">8 o más</option>
+            <option value="9">9 o más</option>
+            <option value="10">10</option>
+        </select>
+        <button id="btnFiltrarPuntaje">Filtrar por Puntaje</button>
+    </div>
+    
+
+    <div>
+        <h3><strong>Filtrado de Genero</strong></h3>
+        <ul id="listaPeliculas"></ul> 
+    </div>
+    <div>
+        <h3><strong>Filtrado por Puntaje</strong></h3>
+        <ul id="listaPeliculasPuntaje"></ul> 
+    </div>
+
+    <script type="module" src="../js/ejercicio04.js"></script>
+</body>
+</html>
