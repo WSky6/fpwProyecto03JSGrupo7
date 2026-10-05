@@ -9,7 +9,6 @@ const mostrarDatos = () => {
         alert("Por favor, completa todos los datos.");
         return;
     }
-    
 
     agregarEstudiante(valorNombre, valorApellido, valorLibreta);
 
@@ -23,10 +22,21 @@ const mostrarDatos = () => {
         `;
     }).join('');
 
-
     document.querySelector("#Nombre").value = "";
     document.querySelector("#Apellido").value = "";
     document.querySelector("#LibretaUniversitaria").value = "";
-};
+}
 
 document.querySelector("#btnMostrar").addEventListener("click", mostrarDatos);
+
+document.querySelector("#Nombre").addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+});
+
+document.querySelector("#Apellido").addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+});
+
+document.querySelector("#LibretaUniversitaria").addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+});
