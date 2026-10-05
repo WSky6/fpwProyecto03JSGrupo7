@@ -1,20 +1,32 @@
-function formulario() {
-    let nombre = document.getElementById("nombre").value;
-    let correo = document.getElementById("correo").value;
-    let mensaje = document.getElementById("mensaje").value;
+import { agregarEstudiante, listaEstudiantes } from '../services/ejercicio01.js';
+
+const mostrarDatos = () => {
+    const valorNombre = document.querySelector("#Nombre").value;
+    const valorApellido = document.querySelector("#Apellido").value;
+    const valorLibreta = document.querySelector("#LibretaUniversitaria").value;
 
     if (valorNombre === "" || valorApellido === "" || valorLibreta === "") {
         alert("Por favor, completa todos los datos.");
         return;
     }
     
-    agregarEstudiante(nombre, correo, mensaje);
 
-    const htmlListo = obtenerHTMLDeLaTabla();
-    document.querySelector("#cuerpo-tabla").innerHTML = htmlListo;
+    agregarEstudiante(valorNombre, valorApellido, valorLibreta);
+
+    document.querySelector("#cuerpo-tabla").innerHTML = listaEstudiantes.map((estudiante) => {
+        return `
+            <tr>
+                <td>${estudiante.nombre}</td>
+                <td>${estudiante.apellido}</td>
+                <td>${estudiante.libreta}</td>
+            </tr>
+        `;
+    }).join('');
+
 
     document.querySelector("#Nombre").value = "";
     document.querySelector("#Apellido").value = "";
     document.querySelector("#LibretaUniversitaria").value = "";
-    
-}
+};
+
+document.querySelector("#btnMostrar").addEventListener("click", mostrarDatos);
